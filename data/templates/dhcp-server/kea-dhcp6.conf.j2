@@ -41,6 +41,15 @@
                 "space": "dhcp6",
                 "csv-format": true,
                 "data": "{{ global_parameters.name_server | join(", ") }}"
+            }{{ ',' if preference is vyos_defined or global_parameters.domain_search is vyos_defined else '' }}
+{% endif %}
+{% if global_parameters.domain_search is vyos_defined %}
+            {
+                "name": "domain-search",
+                "code": 24,
+                "space": "dhcp6",
+                "csv-format": true,
+                "data": "{{ global_parameters.domain_search | join(", ") }}"
             }{{ ',' if preference is vyos_defined else '' }}
 {% endif %}
 {% if preference is vyos_defined %}

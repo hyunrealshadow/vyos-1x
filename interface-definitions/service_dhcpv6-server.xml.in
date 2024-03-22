@@ -21,6 +21,7 @@
               <help>Additional global parameters for DHCPv6 server</help>
             </properties>
             <children>
+              #include <include/dhcp/domain-search.xml.i>
               #include <include/name-server-ipv6.xml.i>
             </children>
           </node>
